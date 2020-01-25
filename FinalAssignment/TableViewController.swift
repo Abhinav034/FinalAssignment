@@ -22,7 +22,7 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        saveData()
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -50,13 +50,13 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         if searching{
-                cell.textLabel!.text = searchArr[10].pname![indexPath.row]
-                  cell.detailTextLabel!.text = searchArr[10].pid![indexPath.row]
+            cell.textLabel!.text = searchArr.last!.pname![indexPath.row]
+            cell.detailTextLabel!.text = searchArr.last!.pid![indexPath.row]
             
         }
         
-        cell.textLabel!.text = productsArr[10].pname![indexPath.row]
-        cell.detailTextLabel!.text = productsArr[10].pid![indexPath.row]
+        cell.textLabel!.text = productsArr.last!.pname![indexPath.row]
+        cell.detailTextLabel!.text = productsArr.last!.pid![indexPath.row]
 
         return cell
     }
@@ -64,10 +64,10 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let name = productsArr[10].pname![indexPath.row]
-        let id =   productsArr[10].pid![indexPath.row]
-        let pdesc = productsArr[10].pdesc![indexPath.row]
-        let price = productsArr[10].price![indexPath.row]
+        let name = productsArr.last!.pname![indexPath.row]
+        let id =   productsArr.last!.pid![indexPath.row]
+        let pdesc = productsArr.last!.pdesc![indexPath.row]
+        let price = productsArr.last!.price![indexPath.row]
         
       
       let dest = storyboard?.instantiateViewController(identifier: "viewControllerVC") as! ViewController
@@ -93,7 +93,7 @@ class TableViewController: UITableViewController {
 
          data.pname = ["Shampoo" , "Hair-Cream" , "Hair-Gel" , "Tooth-paste" , "Brush" , "Cologne" , "Conditioner" , "Soap" , "Showergel" , "Chips"]  as [String]
          data.pid = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9" , "10"] as [String]
-         data.pdesc = ["Anti-dandruff Shampoo" , "ecfvfv" , "wewccewc" , "wewccewc", "wewccewc", "wewccewc", "wewccewc", "wewccewc", "wewccewc"]  as [String]
+         data.pdesc = ["Anti-dandruff Shampoo" , "ecfvfv" , "wewccewc" , "wewccewc", "wewccewc", "wewccewc", "wewccewc", "wewccewc", "wewccewc" , "wewccewc"]  as [String]
          data.price = ["5$" , "6$" , "7$","7$" , "7$" , "7$" , "7$" , "7$" , "7$" , "7$"] as [String]
          
          
